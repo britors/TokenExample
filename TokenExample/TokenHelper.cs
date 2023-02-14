@@ -11,7 +11,7 @@ namespace TokenExample
             var secret = "jwDP3WHz%A5Fa8Hr";
             var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, userInfo.Email),
+            new Claim(JwtRegisteredClaimNames.Sub, userInfo.Email ?? ""),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64),
             new Claim("UserInfo", JsonConvert.SerializeObject(userInfo))

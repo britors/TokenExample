@@ -11,7 +11,7 @@ namespace TokenExample.Controllers
         public IActionResult Post([FromBody] UserAuth user)
         {
             var userInfo = new UserInfo {
-                Email = user.Email,
+                Email = user.Email ?? "",
                 Id = Guid.NewGuid(),
                 Name = "User Name",
                 Applications = new UserApplcation[] {
